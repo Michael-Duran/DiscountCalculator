@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MDQuartzView.h"
 
 @interface MDResultsViewController : UIViewController
+
 @property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end

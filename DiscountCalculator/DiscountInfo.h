@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface DiscountInfo : NSObject
 
 @property (nonatomic) double price;
@@ -18,6 +19,7 @@
 
 @property (nonatomic) double discountedPrice;
 @property (nonatomic) double originalPrice;
+
 
 //- (float) discountedPrice;
 //- (float) originalPrice;
@@ -31,3 +33,5 @@
 + (NSString*) calcDiscountPrice;
 
 @end
+
+static DiscountInfo* _mainInfo;

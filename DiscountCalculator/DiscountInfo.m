@@ -8,7 +8,7 @@
 
 #import "DiscountInfo.h"
 
-static DiscountInfo* _mainInfo;
+//static DiscountInfo* _mainInfo;
 
 @implementation DiscountInfo
 
