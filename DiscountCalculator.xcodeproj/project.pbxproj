@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0048A0318C2E4AE005F870D /* DiscountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D0048A0218C2E4AE005F870D /* DiscountInfo.m */; };
+		D007540A18C14BB700E0171A /* MDCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = D007540918C14BB700E0171A /* MDCalculator.m */; };
+		D014EEB218C4375D0040BD50 /* MDResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014EEB118C4375D0040BD50 /* MDResultsViewController.m */; };
 		D056D4E118B6DAC800FCE4E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D056D4E018B6DAC800FCE4E8 /* Foundation.framework */; };
 		D056D4E318B6DAC800FCE4E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D056D4E218B6DAC800FCE4E8 /* CoreGraphics.framework */; };
 		D056D4E518B6DAC800FCE4E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D056D4E418B6DAC800FCE4E8 /* UIKit.framework */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0048A0118C2E4AE005F870D /* DiscountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountInfo.h; sourceTree = "<group>"; };
+		D0048A0218C2E4AE005F870D /* DiscountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountInfo.m; sourceTree = "<group>"; };
+		D007540818C14BB700E0171A /* MDCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCalculator.h; sourceTree = "<group>"; };
+		D007540918C14BB700E0171A /* MDCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCalculator.m; sourceTree = "<group>"; };
+		D014EEB018C4375D0040BD50 /* MDResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDResultsViewController.h; sourceTree = "<group>"; };
+		D014EEB118C4375D0040BD50 /* MDResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDResultsViewController.m; sourceTree = "<group>"; };
 		D056D4DD18B6DAC800FCE4E8 /* DiscountCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscountCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D056D4E018B6DAC800FCE4E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D056D4E218B6DAC800FCE4E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,11 +129,19 @@
 				D056D4F518B6DAC800FCE4E8 /* Main_iPad.storyboard */,
 				D056D4F818B6DAC800FCE4E8 /* MDViewController.h */,
 				D056D4F918B6DAC800FCE4E8 /* MDViewController.m */,
+				D014EEB018C4375D0040BD50 /* MDResultsViewController.h */,
+				D014EEB118C4375D0040BD50 /* MDResultsViewController.m */,
+				D0048A0118C2E4AE005F870D /* DiscountInfo.h */,
+				D0048A0218C2E4AE005F870D /* DiscountInfo.m */,
+				D007540818C14BB700E0171A /* MDCalculator.h */,
+				D007540918C14BB700E0171A /* MDCalculator.m */,
 				D056D4FB18B6DAC800FCE4E8 /* Images.xcassets */,
 				D056D4E718B6DAC800FCE4E8 /* Supporting Files */,
 			);
 			path = DiscountCalculator;
 			sourceTree = "<group>";
+			usesTabs = 0;
+			wrapsLines = 0;
 		};
 		D056D4E718B6DAC800FCE4E8 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -254,8 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0048A0318C2E4AE005F870D /* DiscountInfo.m in Sources */,
+				D007540A18C14BB700E0171A /* MDCalculator.m in Sources */,
 				D056D4ED18B6DAC800FCE4E8 /* main.m in Sources */,
 				D056D4FA18B6DAC800FCE4E8 /* MDViewController.m in Sources */,
+				D014EEB218C4375D0040BD50 /* MDResultsViewController.m in Sources */,
 				D056D4F118B6DAC800FCE4E8 /* MDAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +495,7 @@
 				D056D51418B6DAC800FCE4E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D056D51518B6DAC800FCE4E8 /* Build configuration list for PBXNativeTarget "DiscountCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +504,7 @@
 				D056D51718B6DAC800FCE4E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

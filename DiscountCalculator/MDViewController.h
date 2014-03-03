@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DiscountInfo.h"
 
-@interface MDViewController : UIViewController
+
+@interface MDViewController : UIViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *priceInput;
+@property (strong, nonatomic) IBOutlet UITextField *dollarsOffInput;
+@property (strong, nonatomic) IBOutlet UITextField *discountPercentInput;
+@property (strong, nonatomic) IBOutlet UITextField *additionalDiscountInput;
+@property (strong, nonatomic) IBOutlet UITextField *taxPercentageInput;
+
+- (IBAction)CalculateButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *OrigPriceLabel;
+
+//@property (strong, nonatomic) MDCalculator *calc;
+
 
 @end
