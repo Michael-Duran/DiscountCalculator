@@ -7,14 +7,6 @@
 //
 
 #import "MDViewController.h"
-//#import "MDCalculator.h"
-
-//@interface MDViewController ()
-
-//@end
-
-
-
 
 @implementation MDViewController
 
@@ -24,8 +16,7 @@
 @synthesize additionalDiscountInput;
 @synthesize taxPercentageInput;
 @synthesize OrigPriceLabel;
-
-
+@synthesize DiscountPriceLabel;
 
 - (void)viewDidLoad
 {
@@ -84,10 +75,15 @@
     }
     else
     {
+        //DiscountInfo* hello = [[DiscountInfo alloc] init];//
         [DiscountInfo mainInfo];
-        [DiscountInfo setDiscountInfo: priceInput.text = 0: dollarsOffInput.text = 0: discountPercentInput.text = 0: additionalDiscountInput.text = 0: taxPercentageInput.text = 0];
+        
+        [DiscountInfo setDiscountInfo: priceInput.text: dollarsOffInput.text: discountPercentInput.text: additionalDiscountInput.text: taxPercentageInput.text];
+        
+        [DiscountInfo calcPrice];
         
         OrigPriceLabel.text = [DiscountInfo calcPrice];
+        DiscountPriceLabel.text = [DiscountInfo calcDiscountPrice];
     }
     
 }

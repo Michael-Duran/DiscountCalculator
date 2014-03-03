@@ -124,6 +124,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SSv-R2-z2y"/>
                     <connections>
+                        <outlet property="DiscountPriceLabel" destination="Dob-Ed-Uc5" id="c94-xr-9dd"/>
                         <outlet property="OrigPriceLabel" destination="hkS-KP-Itu" id="uMk-CW-Psk"/>
                         <outlet property="additionalDiscountInput" destination="YMX-3I-71d" id="wRz-KA-5j4"/>
                         <outlet property="discountPercentInput" destination="jg9-Le-hz7" id="2iT-gX-jua"/>

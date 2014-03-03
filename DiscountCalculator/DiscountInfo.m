@@ -10,11 +10,7 @@
 
 static DiscountInfo* _mainInfo;
 
-
-
 @implementation DiscountInfo
-
-
 
 + (DiscountInfo*) mainInfo
 {
@@ -30,39 +26,30 @@ static DiscountInfo* _mainInfo;
 {
     //DiscountInfo* _mainInfo = [[DiscountInfo alloc] init];
     _mainInfo.price = [priceInput doubleValue];
+    NSLog(@"price is %lf", _mainInfo.price);
     _mainInfo.dollarsOff = [dollarsOffInput doubleValue];
     _mainInfo.discount = [discountInput doubleValue];
     _mainInfo.additionalDiscount = [additionalDiscountInput doubleValue];
     _mainInfo.tax = [taxInput doubleValue];
     
-    
 }
 
-
-+ (NSString*) calcPrice//: (NSObject*) userInput
++ (NSString*) calcPrice
 {
-    double temp = _mainInfo.price;
+    _mainInfo.originalPrice = _mainInfo.price + ((_mainInfo.price * _mainInfo.tax) / 100);
     
-    temp *= 2;
+    //_mainInfo.discountedPrice = ((_mainInfo.originalPrice - _mainInfo.dollarsOff) * (1 - (_mainInfo.discount/100))) * (1 - _mainInfo.additionalDiscount);
     
-    return [NSString stringWithFormat:@"%lf", temp];
+
+    return [NSString stringWithFormat:@"%0.2lf", _mainInfo.originalPrice];
 }
 
-
-
-
-
-
-
-/*  // moved to MDCalculator for now
-+ (DiscountInfo*) mainInfo
++ (NSString*) calcDiscountPrice
 {
-    if(_mainInfo == nil)
-    {
-        _mainInfo = [[DiscountInfo alloc] init];
-    }
+    _mainInfo.discountedPrice = ((_mainInfo.originalPrice - _mainInfo.dollarsOff) * (1 - (_mainInfo.discount/100))) * (1 - (_mainInfo.additionalDiscount)/100);
     
-    return _mainInfo;
+    
+    return [NSString stringWithFormat:@"%0.2lf", _mainInfo.discountedPrice];
 }
- */
+
 @end

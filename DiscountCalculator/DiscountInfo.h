@@ -16,21 +16,18 @@
 @property (nonatomic) double additionalDiscount;
 @property (nonatomic) double tax;
 
-@property (readonly) float discountedPrice;
-@property (readonly) float originalPrice;
+@property (nonatomic) double discountedPrice;
+@property (nonatomic) double originalPrice;
 
-- (float) discountedPrice;
-- (float) originalPrice;
+//- (float) discountedPrice;
+//- (float) originalPrice;
 
 + (DiscountInfo*) mainInfo;
 
-// added from MDCalculator
 + (void) setDiscountInfo: (NSString*) priceInput : (NSString*) dollarsOffInput : (NSString*) discountInput : (NSString*) additionalDiscountInput : (NSString*) taxInput;
 
-+ (NSString*) calcPrice;//: (NSObject*) userInput;
++ (NSString*) calcPrice;
 
-
-
-//+ (DiscountInfo*) mainInfo;
++ (NSString*) calcDiscountPrice;
 
 @end

@@ -20,6 +20,7 @@
 
 - (IBAction)CalculateButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *OrigPriceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *DiscountPriceLabel;
 
 //@property (strong, nonatomic) MDCalculator *calc;
 
