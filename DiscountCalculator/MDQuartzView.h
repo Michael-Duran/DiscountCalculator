@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MDQuartzView : UIView
-@property (nonatomic) double calDiscountPrice;
 
+@property (nonatomic) double calDiscountPrice;
 @property (nonatomic) double calOriginalPrice;
+
 @end

@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MDQuartzView.h"
 
-@interface MDResultsViewController : UIViewController
+@interface MDResultsViewController : UIView
 
-@property (strong, nonatomic) IBOutlet UILabel *label;
+//@property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end

@@ -142,30 +142,21 @@
             </objects>
             <point key="canvasLocation" x="484" y="10"/>
         </scene>
-        <!--Results View Controller-->
+        <!--View Controller-->
         <scene sceneID="ztE-Qf-kAy">
             <objects>
-                <viewController id="e6Y-US-RXi" customClass="MDResultsViewController" sceneMemberID="viewController">
+                <viewController id="e6Y-US-RXi" customClass="MDViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ovp-Ix-Q7n"/>
                         <viewControllerLayoutGuide type="bottom" id="9h7-Qg-pnt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OTP-md-4tl">
+                    <view key="view" contentMode="scaleToFill" id="OTP-md-4tl" customClass="MDQuartzView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1rV-Er-Kcy">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="rX7-qG-7WD"/>
-                    <connections>
-                        <outlet property="view" destination="OTP-md-4tl" id="pNR-ZV-BrQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgA-an-RzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

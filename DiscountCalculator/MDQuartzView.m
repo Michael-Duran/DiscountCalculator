@@ -14,6 +14,10 @@
 @synthesize calDiscountPrice;
 @synthesize calOriginalPrice;
 
+
+
+/*
+
 - (id)initWithFrame:(CGRect)frame
 {
     NSLog(@"initWithFrame");
@@ -37,10 +41,16 @@
     return self;
 }
 
+*/
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
+    
+    
+    DiscountInfo* priceInformation;
+    priceInformation = [DiscountInfo mainInfo];
     
     // Get the drawing context
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -67,16 +77,18 @@
     // Sets current fill color to black
     CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
     // Set instance variable to store Original Price
-    NSString* printOriginalPrice = [[NSString alloc] initWithFormat:@"$%0.2f", _mainInfo.originalPrice];//calOriginalPrice];
+    NSString* printOriginalPrice = [[NSString alloc] initWithFormat:@"$%0.2f", priceInformation.originalPrice];//calOriginalPrice];
     // Display Original Price
-    [printOriginalPrice drawAtPoint:CGPointMake(65, 185) withFont:font];
+    [printOriginalPrice drawAtPoint:CGPointMake(65, 185) withAttributes:<#(NSDictionary *)#>];//withFont:font];
     
     //--------------------------------------Draw subtracted rectangle--------------------------------------------
     
+    
+    
     // Calcualate how much user saved from original price
-    double subtractAmount = _mainInfo.originalPrice - _mainInfo.discountedPrice;
+    double subtractAmount = priceInformation.originalPrice - priceInformation.discountedPrice;
     // Calculate saved percentage
-    double subtractPerc =  subtractAmount / _mainInfo.originalPrice;
+    double subtractPerc =  subtractAmount / priceInformation.originalPrice;
     // Calculate dispaly location
     double subtractRecHeight = 375 * subtractPerc;
     
@@ -104,7 +116,7 @@
     //----------------------------------------Draw Discount Price rectangle----------------------------------------
     
     // Compute Discount percentage and display location in its shape
-    double discountPerc= _mainInfo.discountedPrice / _mainInfo.originalPrice;
+    double discountPerc= priceInformation.discountedPrice / priceInformation.originalPrice;
     double discountRecHeight = 375 - subtractRecHeight;
     
     CGRect discountRec = CGRectMake(156,20 + subtractRecHeight,135,discountRecHeight);
@@ -120,7 +132,7 @@
     // Sets current fill color to black
     CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
     // Set instance variable to store Discount Price
-    NSString* printDiscountDollars = [[NSString alloc] initWithFormat:@"$%0.2f", _mainInfo.discountedPrice];
+    NSString* printDiscountDollars = [[NSString alloc] initWithFormat:@"$%0.2f", priceInformation.discountedPrice];
     // Display Discount Price in the middle of rectangle
     [printDiscountDollars drawAtPoint:CGPointMake(200,subtractRecHeight + discountRecHeight / 2) withFont:font];
     // Set instance variable to store Discount Price percentage

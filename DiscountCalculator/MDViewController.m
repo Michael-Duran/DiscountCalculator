@@ -7,6 +7,7 @@
 //
 
 #import "MDViewController.h"
+#import "MDQuartzView.h"
 
 @implementation MDViewController
 
