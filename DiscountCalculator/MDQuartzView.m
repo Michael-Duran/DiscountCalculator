@@ -45,11 +45,11 @@
     double savedRecHeight;
     //checks to see if it is a nan. a nan will return true with !=
     if(savedPerc != savedPerc){
-        NSLog(@"subtractPerc is not a number");
+        NSLog(@"savedPerc is not a number");
         savedRecHeight = 0;
         savedPerc = 0;
     }else{
-        NSLog(@"subtractPerc is not 0, its: %lf", savedPerc);
+        NSLog(@"savedPerc is: %lf", savedPerc);
         savedRecHeight = 400 * savedPerc;
     }
     
