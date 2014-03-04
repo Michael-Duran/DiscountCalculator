@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D0048A0318C2E4AE005F870D /* DiscountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D0048A0218C2E4AE005F870D /* DiscountInfo.m */; };
-		D014EEB218C4375D0040BD50 /* MDResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014EEB118C4375D0040BD50 /* MDResultsViewController.m */; };
 		D014EEB918C4A8A80040BD50 /* MDQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = D014EEB818C4A8A80040BD50 /* MDQuartzView.m */; };
 		D056D4E118B6DAC800FCE4E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D056D4E018B6DAC800FCE4E8 /* Foundation.framework */; };
 		D056D4E318B6DAC800FCE4E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D056D4E218B6DAC800FCE4E8 /* CoreGraphics.framework */; };
@@ -40,8 +39,6 @@
 /* Begin PBXFileReference section */
 		D0048A0118C2E4AE005F870D /* DiscountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountInfo.h; sourceTree = "<group>"; };
 		D0048A0218C2E4AE005F870D /* DiscountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountInfo.m; sourceTree = "<group>"; };
-		D014EEB018C4375D0040BD50 /* MDResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDResultsViewController.h; sourceTree = "<group>"; };
-		D014EEB118C4375D0040BD50 /* MDResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDResultsViewController.m; sourceTree = "<group>"; };
 		D014EEB718C4A8A80040BD50 /* MDQuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDQuartzView.h; sourceTree = "<group>"; };
 		D014EEB818C4A8A80040BD50 /* MDQuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDQuartzView.m; sourceTree = "<group>"; };
 		D056D4DD18B6DAC800FCE4E8 /* DiscountCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscountCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,8 +126,6 @@
 				D056D4F518B6DAC800FCE4E8 /* Main_iPad.storyboard */,
 				D056D4F818B6DAC800FCE4E8 /* MDViewController.h */,
 				D056D4F918B6DAC800FCE4E8 /* MDViewController.m */,
-				D014EEB018C4375D0040BD50 /* MDResultsViewController.h */,
-				D014EEB118C4375D0040BD50 /* MDResultsViewController.m */,
 				D0048A0118C2E4AE005F870D /* DiscountInfo.h */,
 				D0048A0218C2E4AE005F870D /* DiscountInfo.m */,
 				D014EEB718C4A8A80040BD50 /* MDQuartzView.h */,
@@ -275,7 +270,6 @@
 				D056D4ED18B6DAC800FCE4E8 /* main.m in Sources */,
 				D014EEB918C4A8A80040BD50 /* MDQuartzView.m in Sources */,
 				D056D4FA18B6DAC800FCE4E8 /* MDViewController.m in Sources */,
-				D014EEB218C4375D0040BD50 /* MDResultsViewController.m in Sources */,
 				D056D4F118B6DAC800FCE4E8 /* MDAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

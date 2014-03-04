@@ -17,12 +17,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *discountPercentInput;
 @property (strong, nonatomic) IBOutlet UITextField *additionalDiscountInput;
 @property (strong, nonatomic) IBOutlet UITextField *taxPercentageInput;
-
-- (IBAction)CalculateButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *OrigPriceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *DiscountPriceLabel;
 
-//@property (strong, nonatomic) MDCalculator *calc;
-
+- (IBAction)CalculateButton:(id)sender;
 
 @end

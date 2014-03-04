@@ -11,135 +11,86 @@
 
 @implementation MDQuartzView
 
-@synthesize calDiscountPrice;
-@synthesize calOriginalPrice;
-
-
-
-/*
-
-- (id)initWithFrame:(CGRect)frame
-{
-    NSLog(@"initWithFrame");
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    NSLog(@"initWithCoder");
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        // Initialization code
-        self.backgroundColor = [UIColor whiteColor];
-        self.opaque = YES;
-        self.clearsContextBeforeDrawing = YES;
-    }
-    return self;
-}
-
-*/
-
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    
-    
+    /*  Creates an instance of a class, and gets all information previously
+        stored in the class by the viewController. */
     DiscountInfo* priceInformation;
     priceInformation = [DiscountInfo mainInfo];
     
-    // Get the drawing context
+    // initalizes the attributes needed for drawAtPoint:withAttributes
+    NSDictionary* attr = [[NSDictionary alloc] init];
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
-    // Drawing with a white stroke color
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    // Draw all rectangle with a 2.0 stroke width so they are a bit more visible.
     CGContextSetLineWidth(context, 2.0);
-    // Set display font and size
-    UIFont * font = nil;
-    font = [UIFont systemFontOfSize:15.0];
     
-    //------------------------------------Draw Original Price rectangle----------------------------------------
-    
-    CGRect originalRec = CGRectMake(20, 20, 135, 375);
-    // Adds a rectangular path
+//===== Original Price =========================================================
+    CGRect originalRec = CGRectMake(20, 20, 130, 400);
     CGContextAddRect(context, originalRec);
-    // Paints a line along the current path
     CGContextStrokePath(context);
+    
     // Sets rectangle with white fill color
-    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-    // Paints rectangle using white fill color
+    UIColor * color = [UIColor colorWithRed:131/255.0f green:71/255.0f blue:194/255.0f alpha:1.0f];
+    CGContextSetFillColorWithColor(context, color.CGColor);
     CGContextFillRect(context, originalRec);
     
-    // Sets current fill color to black
-    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-    // Set instance variable to store Original Price
-    NSString* printOriginalPrice = [[NSString alloc] initWithFormat:@"$%0.2f", priceInformation.originalPrice];//calOriginalPrice];
     // Display Original Price
-    [printOriginalPrice drawAtPoint:CGPointMake(65, 185) withAttributes:<#(NSDictionary *)#>];//withFont:font];
+    NSString* dispOrig = [[NSString alloc] initWithFormat:@"$%0.2f", priceInformation.originalPrice];
+    [dispOrig drawAtPoint:CGPointMake(65, 185) withAttributes: attr];
     
-    //--------------------------------------Draw subtracted rectangle--------------------------------------------
+//===== amountSaved ============================================================
+    // Calcualate how much user saved, percentage and rectangle height
+    double amountSaved = priceInformation.originalPrice - priceInformation.discountedPrice;
+    double savedPerc = amountSaved / priceInformation.originalPrice;
+    double savedRecHeight;
+    //checks to see if it is a nan. a nan will return true with !=
+    if(savedPerc != savedPerc){
+        NSLog(@"subtractPerc is not a number");
+        savedRecHeight = 0;
+        savedPerc = 0;
+    }else{
+        NSLog(@"subtractPerc is not 0, its: %lf", savedPerc);
+        savedRecHeight = 400 * savedPerc;
+    }
     
-    
-    
-    // Calcualate how much user saved from original price
-    double subtractAmount = priceInformation.originalPrice - priceInformation.discountedPrice;
-    // Calculate saved percentage
-    double subtractPerc =  subtractAmount / priceInformation.originalPrice;
-    // Calculate dispaly location
-    double subtractRecHeight = 375 * subtractPerc;
-    
-    CGRect subtractRec = CGRectMake(156,20,135,subtractRecHeight);
-    // Adds a rectangular path
+    CGRect subtractRec = CGRectMake(165,20,135, savedRecHeight);
     CGContextAddRect(context, subtractRec);
-    // Paints a line along the current path
     CGContextStrokePath(context);
-    // Sets rectangle with white fill color
-    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-    // Panits rectangle using while fill color
+    
+    // Sets rectangle with custom fill color
+    color = [UIColor colorWithRed:131/255.0f green:197/255.0f blue:202/255.0f alpha:1.0f];
+    CGContextSetFillColorWithColor(context, color.CGColor);
     CGContextFillRect(context, subtractRec);
     
-    // Sets current fill color to black
-    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-    // Set instance variable to store subtracted amount
-    NSString* printSubtractDollars = [[NSString alloc] initWithFormat:@"$%0.2f",subtractAmount];
-    // Display the subtracted price
-    [printSubtractDollars drawAtPoint:CGPointMake(200, subtractRecHeight / 2) withFont:font];
-    // Set instance variable to store subtacted amount in percentage
-    NSString* printSubtractPerc = [[NSString alloc] initWithFormat:@"%0.1f%%",subtractPerc * 100];
-    // Display the subtracted percentage
-    [printSubtractPerc drawAtPoint:CGPointMake(200,20 + subtractRecHeight / 2) withFont:font];
+    // Display the saved amount and percentage
+    NSString* printSubtractDollars = [[NSString alloc] initWithFormat:@"$%0.2f", amountSaved];
+    [printSubtractDollars drawAtPoint:CGPointMake(200, savedRecHeight / 2) withAttributes: attr];
+    NSString* printSubtractPerc = [[NSString alloc] initWithFormat:@"%0.1f%%",savedPerc * 100];
+    [printSubtractPerc drawAtPoint:CGPointMake(200,20 + savedRecHeight / 2) withAttributes: attr];
     
-    //----------------------------------------Draw Discount Price rectangle----------------------------------------
+//===== discountPrice ============================================================
     
     // Compute Discount percentage and display location in its shape
     double discountPerc= priceInformation.discountedPrice / priceInformation.originalPrice;
-    double discountRecHeight = 375 - subtractRecHeight;
+    if(discountPerc != discountPerc){
+        discountPerc = 0;
+    }
+    double discountRecHeight = 400 - savedRecHeight;
     
-    CGRect discountRec = CGRectMake(156,20 + subtractRecHeight,135,discountRecHeight);
-    // Adds a rectangular path
+    CGRect discountRec = CGRectMake(165,20 + savedRecHeight,135,discountRecHeight);
     CGContextAddRect(context, discountRec);
-    // Paints a line along the current path
     CGContextStrokePath(context);
-    // Sets rectangle with white fill color
-    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-    // Paints rectangle using white fill color
+   
+    // Sets rectangle with custom fill color
+    color = [UIColor colorWithRed:131/255.0f green:193/255.0f blue:65/255.0f alpha:1.0f];
+    CGContextSetFillColorWithColor(context, color.CGColor);
     CGContextFillRect(context, discountRec);
-    
-    // Sets current fill color to black
-    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-    // Set instance variable to store Discount Price
+
+    // Display Discount Price and percentage inside rectangle
     NSString* printDiscountDollars = [[NSString alloc] initWithFormat:@"$%0.2f", priceInformation.discountedPrice];
-    // Display Discount Price in the middle of rectangle
-    [printDiscountDollars drawAtPoint:CGPointMake(200,subtractRecHeight + discountRecHeight / 2) withFont:font];
-    // Set instance variable to store Discount Price percentage
+    [printDiscountDollars drawAtPoint:CGPointMake(200,savedRecHeight + discountRecHeight / 2) withAttributes: attr];
     NSString* printDiscountPerc = [[NSString alloc] initWithFormat:@"%0.1f%%",discountPerc * 100];
-    // Display Discount Price percentage in the middle of rectangle, but a little below Discount Price
-    [printDiscountPerc drawAtPoint:CGPointMake(200,20 + subtractRecHeight + discountRecHeight / 2) withFont:font];
-    
+    [printDiscountPerc drawAtPoint:CGPointMake(200,20 + savedRecHeight + discountRecHeight / 2) withAttributes: attr];
 }
 
 @end
